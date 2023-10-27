@@ -4,7 +4,7 @@ import lombok.Builder;
 
 import java.math.BigDecimal;
 @Builder
-record Product(Long id,
+record Product(int id,
                String name,
                BigDecimal price) {
 }
