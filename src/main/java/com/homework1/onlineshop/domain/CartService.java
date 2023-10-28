@@ -2,7 +2,6 @@ package com.homework1.onlineshop.domain;
 
 import com.homework1.onlineshop.domain.dto.ProductDto;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -22,5 +21,24 @@ public class CartService {
 
     public List<ProductDto> getAllProducts(){
         return cartRepository.getAllProducts();
+    }
+
+    public String getAppLevel() {
+        return "start";
+    }
+    public BigDecimal getVatValue() {
+        return BigDecimal.ZERO;
+    }
+
+    public BigDecimal getDiscountValue() {
+        return BigDecimal.ZERO;
+    }
+
+    public BigDecimal getVatAmount() {
+        return BigDecimal.ZERO;
+    }
+
+    public BigDecimal getDiscountAmount() {
+        return BigDecimal.ZERO;
     }
 }

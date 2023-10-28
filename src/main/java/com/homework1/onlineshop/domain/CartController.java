@@ -4,6 +4,7 @@ import com.homework1.onlineshop.domain.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -33,8 +34,18 @@ public class CartController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<List<ProductDto>> getAllProducts(){
+    public String getAllProducts(Model model){
         List<ProductDto> products = cartService.getAllProducts();
-        return ResponseEntity.ok(products);
+        BigDecimal totalPrice = cartService.getTotalPrice();
+
+        model.addAttribute("products", products);
+        model.addAttribute("totalPrice", totalPrice);
+        model.addAttribute("appLevel", cartService.getAppLevel());
+        model.addAttribute("vatValue", cartService.getVatValue());
+        model.addAttribute("discountValue", cartService.getDiscountValue());
+        model.addAttribute("vatAmount", cartService.getVatAmount());
+        model.addAttribute("discountAmount", cartService.getDiscountAmount());
+
+        return "cart";
     }
 }

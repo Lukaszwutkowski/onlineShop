@@ -17,4 +17,20 @@ public class PlusCartService extends CartService{
         BigDecimal vatAmount = originalTotal.multiply(VAT);
         return originalTotal.add(vatAmount);
     }
+
+    @Override
+    public String getAppLevel() {
+        return "plus";
+    }
+
+    @Override
+    public BigDecimal getVatValue() {
+        return VAT;
+    }
+
+    @Override
+    public BigDecimal getVatAmount() {
+        BigDecimal originalTotal = super.getTotalPrice();
+        return originalTotal.multiply(VAT);
+    }
 }

@@ -14,4 +14,19 @@ public class ProCartService extends PlusCartService{
         BigDecimal discountAmount = totalWithVat.multiply(discount);
         return totalWithVat.subtract(discountAmount);
     }
+    @Override
+    public String getAppLevel() {
+        return "pro";
+    }
+
+    @Override
+    public BigDecimal getDiscountValue() {
+        return discount;
+    }
+
+    @Override
+    public BigDecimal getDiscountAmount() {
+        BigDecimal totalWithVat = super.getTotalPrice();
+        return totalWithVat.multiply(discount);
+    }
 }
