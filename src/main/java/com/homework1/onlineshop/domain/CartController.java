@@ -37,5 +37,4 @@ public class CartController {
         List<ProductDto> products = cartService.getAllProducts();
         return ResponseEntity.ok(products);
     }
-
 }

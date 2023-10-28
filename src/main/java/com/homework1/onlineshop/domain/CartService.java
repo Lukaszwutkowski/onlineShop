@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @AllArgsConstructor
-@Service
 public class CartService {
 
     private final CartRepository cartRepository;
